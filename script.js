@@ -1,5 +1,12 @@
 let myLibrary = [];
 
+const Library ={
+    books: [],
+    addBookToLibrary: function(book){
+        this.books.push(book);
+    }
+}
+
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -12,6 +19,8 @@ Book.prototype.info = function(){
     return `${this.title} by ${this.author}, ${this.pages} pages, ${readState} yet`;
 }
 
-function addBookToLibrary(){
+function addBookToLibrary(book){
 
 }
+
+console.log("success");
