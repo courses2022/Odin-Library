@@ -1,0 +1,36 @@
+:root{
+    --Red-Salsa:#F15152;
+    --Midnight-Green:#1E555C;
+    --Black-Coffee:#3A2E39;
+    --Unbleached-Silk:#F4D8CD;
+    --Middle-Yellow-Red:#EDB183;
+}
+
+body{
+    background-color: lightgray;
+    color: var(--Black-Coffee);
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: grid;
+    grid-template-rows: minmax(40px, 10%) 1fr 60px;
+    height: 100vh;
+    background-image: url("./book.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header, .footer{
+    background-color: var(--Midnight-Green);
+    color: var(--Unbleached-Silk);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(160px);
+    opacity: 0.9;
+}
+
+.main{
+    
+
+}
