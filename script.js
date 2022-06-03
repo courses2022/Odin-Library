@@ -26,3 +26,66 @@ let b3 = new Book("Book Three", "Clive Smiths", 34, true);
 Library.addBookToLibrary(b1);
 Library.addBookToLibrary(b2);
 Library.addBookToLibrary(b3);
+
+//Add elements to body
+let dom_utils = {};
+(function(context) {
+   
+    /**
+     * @param {Object} o - object literal with element properties
+     */
+    context.createEl = function(o) {
+      let type = o.type || 'div';
+      let el = document.createElement(type);
+        for (const key of (Object.keys(o))) {
+          if (key != 'attrs' && key != 'type') {
+            el[key] = o[key];
+          }
+        }
+        if (o.attrs) {
+             for (let key of (Object.keys(o.attrs))) {
+                let value = o.attrs[key];
+                if (key != key.toLowerCase()) {
+                   key = key.replace(/[A-Z]/g, m => "-" + m.toLowerCase());
+                }
+                el.setAttribute(key, value);
+            }
+        }
+       
+        return el;
+    };
+
+})(dom_utils);
+
+function changeColor(el) {
+  let color = Math.floor(Math.random()*16777215).toString(16);
+  el.style.color = '#' + color;
+}
+function init() {
+  let root = document.querySelector('.main');
+  
+  let el = dom_utils.createEl({
+    type:'div',
+    className:'card',
+    innerHTML:`<div class="inner">
+    <h2>You Don't Know JS Yet</h2>
+    <p>by</p>
+    <p><strong>Kyle Simpson</strong></p>
+</div>
+<div class="bookOptions">
+    <select name="bookRead">
+        <option value="Read">Read</option>
+        <option value="Unread">Unread</option>
+      </select>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+</div>`,
+    attrs:{
+      dataFoo:'bar',
+      dataBaz:'garply',
+      onclick:'changeColor(this);'
+    }
+  });
+  root.appendChild(el);
+}
+
+init();
