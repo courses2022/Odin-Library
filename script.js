@@ -19,8 +19,10 @@ Book.prototype.info = function(){
     return `${this.title} by ${this.author}, ${this.pages} pages, ${readState} yet`;
 }
 
-function addBookToLibrary(book){
+let b1 = new Book("Book One", "A. B. Richards", 234, false);
+let b2 = new Book("Book Two", "A. B. Richards", 226, false);
+let b3 = new Book("Book Three", "Clive Smiths", 34, true);
 
-}
-
-console.log("success");
+Library.addBookToLibrary(b1);
+Library.addBookToLibrary(b2);
+Library.addBookToLibrary(b3);
