@@ -64,7 +64,8 @@ function changeColor(el) {
 
 function removeBook(el){
     let card = el.parentElement.parentElement;
-    
+    let index = el.parentElement.parentElement.dataset.id;
+    Library.books.splice(index,1);
     card.style.display="none";
 }
 
