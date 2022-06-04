@@ -63,7 +63,31 @@ function changeColor(el) {
 }
 function init() {
   let root = document.querySelector('.main');
-  
+  Library.books.forEach((book, index) => {
+    let el =  dom_utils.createEl({
+        type:'div',
+        className:'card',
+        innerHTML:`<div class="inner">
+        <h2>${book.title}</h2>
+        <p>by</p>
+        <p><strong>${book.author}</strong></p>
+    </div>
+    <div class="bookOptions">
+        <select name="bookRead">
+            <option value="Read">Read</option>
+            <option value="Unread">Unread</option>
+          </select>
+          <i class="fa fa-trash" aria-hidden="true" onclick="changeColor(this)"></i>
+    </div>`,
+        attrs:{
+          dataId:`${index}`,
+          dataFoo:'bar',
+          dataBaz:'garply',
+          onclick:'changeColor(this);'
+        }
+      });
+      root.appendChild(el);      
+  });
   let el = dom_utils.createEl({
     type:'div',
     className:'card',
