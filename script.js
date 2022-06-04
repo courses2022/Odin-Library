@@ -61,6 +61,19 @@ function changeColor(el) {
   let color = Math.floor(Math.random()*16777215).toString(16);
   el.style.color = '#' + color;
 }
+
+function removeBook(el){
+    let card = el.parentElement.parentElement;
+    
+    card.style.display="none";
+}
+
+function toggleReadStatus(el){
+    let index = el.parentElement.parentElement.dataset.id;
+    let status = el.options[el.selectedIndex].value;
+    Library.books[index].readState = status;
+    console.log(status);
+}
 function init() {
   let root = document.querySelector('.main');
   Library.books.forEach((book, index) => {
@@ -73,11 +86,11 @@ function init() {
         <p><strong>${book.author}</strong></p>
     </div>
     <div class="bookOptions">
-        <select name="bookRead">
+        <select name="bookRead"  onchange="toggleReadStatus(this)">
             <option value="Read">Read</option>
             <option value="Unread">Unread</option>
           </select>
-          <i class="fa fa-trash" aria-hidden="true" onclick="changeColor(this)"></i>
+          <i class="fa fa-trash" aria-hidden="true" onclick="removeBook(this)"></i>
     </div>`,
         attrs:{
           dataId:`${index}`,
