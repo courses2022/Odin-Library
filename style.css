@@ -37,6 +37,7 @@ body{
     padding: 40px;
     gap:20px;
     justify-content: start;
+    overflow-y: auto;
 
 }
 

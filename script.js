@@ -19,11 +19,11 @@ Book.prototype.info = function(){
     return `${this.title} by ${this.author}, ${this.pages} pages, ${readState} yet`;
 }
 
-let b1 = new Book("Book One", "A. B. Richards", 234, false);
-let b2 = new Book("Book Two", "A. B. Richards", 226, false);
-let b3 = new Book("Book Three", "Clive Smiths", 34, true);
-let b4 = new Book("Eloquent Javascript", "Marijn Haverbeke", 234, false);
-let b5 = new Book("You Don't Know JS Yet", "Kyle Simpson", 143, true);
+let b1 = new Book("Book One", "A. B. Richards", 234, "Unread");
+let b2 = new Book("Book Two", "A. B. Richards", 226, "Unread");
+let b3 = new Book("Book Three", "Clive Smiths", 34, "Read");
+let b4 = new Book("Eloquent Javascript", "Marijn Haverbeke", 234, "Unread");
+let b5 = new Book("You Don't Know JS Yet", "Kyle Simpson", 143, "Read");
 
 Library.addBookToLibrary(b1);
 Library.addBookToLibrary(b2);
@@ -78,7 +78,7 @@ function removeBook(el){
 function toggleReadStatus(el){
     let index = el.parentElement.parentElement.dataset.id;
     let status = el.options[el.selectedIndex].value;
-    Library.books[index].readState = status;
+    Library.books[index].read = status;
     console.log(status);
 }
 function init() {
@@ -106,6 +106,12 @@ function init() {
           onclick:'changeColor(this);'
         }
       });
+
+      if(book.read=="Read"){
+        el.children[1].children[0].value="Read"
+      }else{
+        el.children[1].children[0].value="Unread"
+      }
       root.appendChild(el);      
   });
   let el = dom_utils.createEl({
