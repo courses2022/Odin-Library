@@ -22,10 +22,14 @@ Book.prototype.info = function(){
 let b1 = new Book("Book One", "A. B. Richards", 234, false);
 let b2 = new Book("Book Two", "A. B. Richards", 226, false);
 let b3 = new Book("Book Three", "Clive Smiths", 34, true);
+let b4 = new Book("Eloquent Javascript", "Marijn Haverbeke", 234, false);
+let b5 = new Book("You Don't Know JS Yet", "Kyle Simpson", 143, true);
 
 Library.addBookToLibrary(b1);
 Library.addBookToLibrary(b2);
 Library.addBookToLibrary(b3);
+Library.addBookToLibrary(b4);
+Library.addBookToLibrary(b5);
 
 //Add elements to body
 let dom_utils = {};
@@ -67,6 +71,8 @@ function removeBook(el){
     let index = el.parentElement.parentElement.dataset.id;
     Library.books.splice(index,1);
     card.style.display="none";
+    card.parentElement.innerHTML ="";
+    init();
 }
 
 function toggleReadStatus(el){
