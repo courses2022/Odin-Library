@@ -12,7 +12,7 @@ body{
     font-size: larger;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: grid;
-    grid-template-rows: minmax(90px, 10%) 1fr 60px;
+    grid-template-rows: minmax(90px, 10%) 1fr 100px;
     height: 100vh;
     background-image: url("./book.jpg");
     background-position: center;
@@ -28,6 +28,11 @@ body{
     align-items: center;
     backdrop-filter: blur(160px);
     opacity: 0.9;
+}
+
+.footer{
+    align-items: flex-start;
+    padding: 20px;
 }
 
 .main{
