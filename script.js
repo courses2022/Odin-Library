@@ -61,11 +61,6 @@ let dom_utils = {};
 
 })(dom_utils);
 
-function changeColor(el) {
-  let color = Math.floor(Math.random()*16777215).toString(16);
-  el.style.color = '#' + color;
-}
-
 function removeBook(el){
     let card = el.parentElement.parentElement;
     let index = el.parentElement.parentElement.dataset.id;
@@ -117,10 +112,7 @@ function init() {
           <i class="fa fa-trash" aria-hidden="true" onclick="removeBook(this)"></i>
     </div>`,
         attrs:{
-          dataId:`${index}`,
-          dataFoo:'bar',
-          dataBaz:'garply',
-          onclick:'changeColor(this);'
+          dataId:`${index}`
         }
       });
 
