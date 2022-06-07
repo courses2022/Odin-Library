@@ -81,6 +81,23 @@ function toggleReadStatus(el){
     Library.books[index].read = status;
     console.log(status);
 }
+
+
+function addBook(){
+    let bookName = document.querySelector("#bookname").value;
+    let bookAuthor = document.querySelector("#bookauthor").value;
+    let readStatus = document.querySelector("#readstatus").value;
+    let book = new Book(bookName, bookAuthor, 0, readStatus);
+    document.querySelector(".main").innerHTML = "";
+    Library.addBookToLibrary(book);
+    init();
+
+}
+
+
+
+
+
 function init() {
   let root = document.querySelector('.main');
   Library.books.forEach((book, index) => {

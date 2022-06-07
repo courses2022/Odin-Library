@@ -19,14 +19,14 @@
     <div class="footer">
         <form>
             <label for="bookname">Book:</label>
-            <input type="text" id="bookname" name="bookname">
+            <input type="text" id="bookname" minlength="5" name="bookname">
             <label for="bookauthor">Author:</label>
-            <input type="text" id="bookauthor" name="bookauthor">
-            <select name="readStatus">
+            <input type="text" id="bookauthor" minlength="5" name="bookauthor">
+            <select name="readStatus" id="readstatus">
                 <option value="Read">Read</option>
                 <option value="Unread">Unread</option>
             </select>
-            <button>ADD</button>
+            <button class="addButton" onclick="addBook()">ADD</button>
         </form>
     </div>
 </body>
