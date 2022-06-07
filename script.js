@@ -87,7 +87,7 @@ function addBook(){
     let bookName = document.querySelector("#bookname").value;
     let bookAuthor = document.querySelector("#bookauthor").value;
     let readStatus = document.querySelector("#readstatus").value;
-    let book = new Book(bookName, bookAuthor, 0, readStatus);
+    let book = new Book(bookName, bookAuthor, 10, readStatus);
     document.querySelector(".main").innerHTML = "";
     Library.addBookToLibrary(book);
     init();
@@ -131,28 +131,7 @@ function init() {
       }
       root.appendChild(el);      
   });
-  let el = dom_utils.createEl({
-    type:'div',
-    className:'card',
-    innerHTML:`<div class="inner">
-    <h2>You Don't Know JS Yet</h2>
-    <p>by</p>
-    <p><strong>Kyle Simpson</strong></p>
-</div>
-<div class="bookOptions">
-    <select name="bookRead">
-        <option value="Read">Read</option>
-        <option value="Unread">Unread</option>
-      </select>
-      <i class="fa fa-trash" aria-hidden="true"></i>
-</div>`,
-    attrs:{
-      dataFoo:'bar',
-      dataBaz:'garply',
-      onclick:'changeColor(this);'
-    }
-  });
-  root.appendChild(el);
+
 }
 
 init();
